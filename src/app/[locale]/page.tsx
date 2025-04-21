@@ -33,6 +33,10 @@ const Page = () => {
 
 export default Page;
 
-export function generateStaticParams() {
-    return [{ slug: ["/"] }]
+export async function generateStaticParams() {
+    return [
+        { slug: 'hello-world' },
+        { slug: 'nextjs-tutorial' },
+        { slug: 'my-first-post' },
+    ];
 }
