@@ -1,25 +1,24 @@
-import { LANGUAGE } from "@/interfaces/enum";
-import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
+import { CommonComponents } from '@/components/common-components'
+import Footer from '@/components/ui/footer'
+import Header from '@/components/ui/header'
+import { NextIntlClientProvider } from 'next-intl'
+import { getMessages } from 'next-intl/server'
 
 export default async function LocaleLayout({
   children,
-  params: { locale },
+  params: { locale }
 }: {
-  children: React.ReactNode;
-  params: { locale: LANGUAGE };
+  children: React.ReactNode
+  params: any
 }) {
-  // Providing all messages to the client
-  // side is the easiest way to get started
-  const messages = await getMessages();
-
+  const messages = await getMessages()
   return (
-    <html lang={locale}>
-      <body>
-        <NextIntlClientProvider messages={messages}>
-          {children}
-        </NextIntlClientProvider>
-      </body>
-    </html>
-  );
+    <NextIntlClientProvider messages={messages} locale={locale}>
+      <CommonComponents.Container className='py-4 max-w-7xl'>
+        <Header />
+        <main className=''>{children}</main>
+        <Footer />
+      </CommonComponents.Container>
+    </NextIntlClientProvider>
+  )
 }

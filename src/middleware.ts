@@ -1,15 +1,20 @@
-import createMiddleware from "next-intl/middleware";
-import { LANGUAGE } from "./interfaces/enum";
+import createMiddleware from 'next-intl/middleware'
+import { NextResponse, NextRequest } from 'next/server'
 
+//config next-intl
 export default createMiddleware({
   // A list of all locales that are supported
-  locales: [LANGUAGE.EN, LANGUAGE.VI],
+  locales: ['vi', 'en', 'zh'],
 
   // Used when no locale matches
-  defaultLocale: LANGUAGE.VI,
-});
+  defaultLocale: 'en'
+})
+
+// // This function can be marked `async` if using `await` inside
+// export function middleware(request: NextRequest) {
+//   return NextResponse.redirect(new URL('/en/home', request.url))
+// }
 
 export const config = {
-  // Match only internationalized pathnames
-  matcher: ["/", "/(vi|en)/:path*"],
-};
+  matcher: ['/', '/(vi|en|zh)/:path*']
+}
