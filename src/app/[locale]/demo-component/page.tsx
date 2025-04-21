@@ -5,7 +5,14 @@ import CardLeader from '@/components/ui/card-leader'
 import CardNews from '@/components/ui/card-news'
 import CardProject from '@/components/ui/card-project'
 import React from 'react'
-
+export function generateStaticParams() {
+  // Define all locales you want to support
+  const locales = ['en', 'vi'] // Add all your supported locales
+  
+  return locales.map(locale => ({
+    locale: locale
+  }))
+}
 const Page = () => {
   const infoMVNO = {
     title: 'E-MVNO',
