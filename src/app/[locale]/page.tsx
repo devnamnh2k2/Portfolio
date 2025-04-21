@@ -32,3 +32,7 @@ const Page = () => {
 };
 
 export default Page;
+
+export function generateStaticParams() {
+    return [{ slug: ["/"] }]
+}
