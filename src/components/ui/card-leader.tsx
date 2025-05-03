@@ -1,4 +1,4 @@
-import { serviceImage } from '@/assets'
+import { serviceImage } from '@/assets/service'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { Card, CardContent } from '@/components/ui/card'
 import Image from 'next/image'
