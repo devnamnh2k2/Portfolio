@@ -1,3 +1,4 @@
+'use client'
 import { CommonComponents } from '@/components/common-components'
 import { SVGIcon } from '@/components/icon-svg'
 import { Button } from '@/components/ui/button'
@@ -5,14 +6,13 @@ import CardLeader from '@/components/ui/card-leader'
 import CardNews from '@/components/ui/card-news'
 import CardProject from '@/components/ui/card-project'
 import React from 'react'
-export function generateStaticParams() {
-  // Define all locales you want to support
-  const locales = ['en', 'vi'] // Add all your supported locales
-  
-  return locales.map(locale => ({
-    locale: locale
-  }))
-}
+import { z } from 'zod'
+import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { Input } from '@/components/ui/input'
+import InputField from '@/components/common-components/form/input/input-field'
+
 const Page = () => {
   const infoMVNO = {
     title: 'E-MVNO',
@@ -45,8 +45,31 @@ const Page = () => {
     author: 'Harper Evans'
   }
 
+  const formSchema = z.object({
+    username: z.string().min(2, {
+      message: 'Username must be at least 2 characters.'
+    }),
+    username2: z.string().min(2, {
+      message: 'Username2 must be at least 2 characters.'
+    })
+  })
+
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      username: '',
+      username2: ''
+    }
+  })
+
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    // Do something with the form values.
+    // ✅ This will be type-safe and validated.
+    console.log(values)
+  }
+
   return (
-    <CommonComponents.Container className='bg-slate-400 pb-24'>
+    <CommonComponents.Container className='pb-24'>
       demo component working!
       <br />
       <br />
@@ -129,6 +152,30 @@ const Page = () => {
             </div>
           ))}
         </div>
+      </CommonComponents.SubContainer>
+      <CommonComponents.SubContainer>
+        <h1>Form</h1>
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-8'>
+            <FormField
+              control={form.control}
+              name='username'
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Username</FormLabel>
+                  <FormControl>
+                    <Input placeholder='shadcn' {...field} />
+                  </FormControl>
+                  <FormDescription>This is your public display name.</FormDescription>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            {/*<FormField control={form.control} name='username2' render={<InputField />} />*/}
+            <InputField form={form} name={'username2'} />
+            <Button type='submit'>Submit</Button>
+          </form>
+        </Form>
       </CommonComponents.SubContainer>
     </CommonComponents.Container>
   )
