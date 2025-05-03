@@ -1,4 +1,4 @@
-import { serviceImage } from '@/assets'
+import { serviceImage } from '@/assets/service'
 import { SVGIcon } from '@/components/icon-svg'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { Button } from '@/components/ui/button'
