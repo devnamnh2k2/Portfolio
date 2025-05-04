@@ -17,11 +17,9 @@ const AboutSection = ({ data = aboutData }: { data?: typeof aboutData }) => {
         <p className={'leading-6 tracking-wide'}>{data.about.description}</p>
         {/* time line sub*/}
         <div className={'mt-7 mb-3'}>
-          {
-            timelineData.map((timeline, index) => (
-              <TimelineExperience {...timeline} key={index} />
-            ))
-          }
+          {timelineData.map((timeline, index) => (
+            <TimelineExperience {...timeline} key={index} />
+          ))}
         </div>
         {/* stack list*/}
         <div className={'mt-4 mb-3'}>

@@ -14,9 +14,7 @@ const ExperienceSection = ({ data = experienceMock }: Props) => {
         <p className={'leading-6 tracking-wide'}>{data.experienceDesc}</p>
       </div>
       {/* content timeLine */}
-      {data.experiences?.map((experience: any, index: number) => (
-        <ExperienceItem data={experience} key={index} />
-      ))}
+      {data.experiences?.map((experience: any, index: number) => <ExperienceItem data={experience} key={index} />)}
     </section>
   )
 }

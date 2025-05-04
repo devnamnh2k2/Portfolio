@@ -1,5 +1,4 @@
 'use client'
-
 import * as React from 'react'
 import { ChevronsUpDown, Moon, Sun } from 'lucide-react'
 import { useTheme } from 'next-themes'
@@ -11,7 +10,7 @@ export function ModeToggle() {
 
   const renderPlacHoder = () => {
     if (theme === 'light') {
-      return <Sun className='h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-al' />
+      return <Sun className='transition-al h-[1.2rem] w-[1.2rem] scale-100 rotate-0' />
     } else if (theme === 'dark') {
       return <Moon className='h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all' />
     } else {
@@ -21,7 +20,9 @@ export function ModeToggle() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant='outline' role='combobox'  className='w-full rounded-sm'>{renderPlacHoder()}</Button>
+        <Button variant='outline' role='combobox' className='w-full rounded-sm'>
+          {renderPlacHoder()}
+        </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align='end' alignOffset={10}>
         <DropdownMenuItem onClick={() => setTheme('light')}>Light</DropdownMenuItem>

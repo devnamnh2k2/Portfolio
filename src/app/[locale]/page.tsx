@@ -5,7 +5,6 @@ import ProjectSection from '@/components/page-components/project-section'
 import StackSection from '@/components/page-components/stack-section'
 import React from 'react'
 import AboutSection from '@/components/page-components/about-section'
-import TimelineExperience from '@/components/ui/timeline-experience'
 const Page = () => {
   return (
     <div>
@@ -39,6 +38,6 @@ const Page = () => {
 
 export default Page
 
-export async function generateStaticParams() {
-  return [{ slug: 'hello-world' }, { slug: 'nextjs-tutorial' }, { slug: 'my-first-post' }]
-}
+// export async function generateStaticParams() {
+//   return [{ slug: 'hello-world' }, { slug: 'nextjs-tutorial' }, { slug: 'my-first-post' }]
+// }

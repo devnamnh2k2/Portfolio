@@ -17,8 +17,6 @@ import {
   DialogTitle,
   DialogTrigger
 } from '@/components/ui/dialog'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
 import { ModeToggle } from '@/components/ui/mode-toggle'
 const Header = ({ data = headerMockData }: { data?: HeaderData }) => {
   return (
@@ -88,7 +86,7 @@ const DialogSetting = () => {
           {<Settings className='transition-all ease-linear group-hover:rotate-180' />}
         </Button>
       </DialogTrigger>
-      <DialogContent className='sm:max-w-md text-primary'>
+      <DialogContent className='text-primary sm:max-w-md'>
         <DialogHeader>
           <DialogTitle>Setting</DialogTitle>
           <DialogDescription>
@@ -98,19 +96,19 @@ const DialogSetting = () => {
         <div className=''>
           <div
             className={
-              'flex w-full cursor-auto items-center py-3  gap-3 text-base text-neutral-800 select-none dark:text-white text-primary'
+              'text-primary flex w-full cursor-auto items-center gap-3 py-3 text-base text-neutral-800 select-none dark:text-white'
             }
           >
-              <SunMoon />
-              {'Theme'}
-              <div className={'ml-auto'}>
-                  <ModeToggle/>
-              </div>
+            <SunMoon />
+            {'Theme'}
+            <div className={'ml-auto'}>
+              <ModeToggle />
+            </div>
           </div>
         </div>
         <DialogFooter className='sm:justify-end'>
           <DialogClose asChild>
-            <Button type='button' className='rounded-sm text-primary' variant={'secondary'}>
+            <Button type='button' className='text-primary rounded-sm' variant={'secondary'}>
               Close
               {<ArrowRight className='stroke-primary' />}
             </Button>

@@ -18,7 +18,9 @@ const InputField = <TName extends string>(props: Props<TName>) => {
       name={name}
       render={({ field }) => (
         <FormItem>
-          <FormLabel>{label} {required && <span className={'text-red-500'}>*</span>}</FormLabel>
+          <FormLabel>
+            {label} {required && <span className={'text-red-500'}>*</span>}
+          </FormLabel>
           <FormControl>
             <Input placeholder={placeholder} {...rest} {...field} />
           </FormControl>

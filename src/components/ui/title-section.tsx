@@ -4,9 +4,16 @@ type Props = {
   className?: string
   text: string
 }
-const TitleSection = ({className, text}: Props) => {
+const TitleSection = ({ className, text }: Props) => {
   return (
-    <h3 className={cn((className),' text-5xl font-bold mb-6 capitalize relative after:content-[""] after:absolute after:bottom-[-10px] after:left-0 after:w-[70px] after:h-[4px] after:bg-primary')}>{text}</h3>
+    <h3
+      className={cn(
+        className,
+        'after:bg-primary relative mb-6 text-5xl font-bold capitalize after:absolute after:bottom-[-10px] after:left-0 after:h-[4px] after:w-[70px] after:content-[""]'
+      )}
+    >
+      {text}
+    </h3>
   )
 }
 

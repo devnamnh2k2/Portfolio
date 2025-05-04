@@ -9,17 +9,24 @@ interface IProps {
 }
 const ExperienceItem = ({ data: experience }: IProps) => {
   return (
-    <div className={"relative pl-10 mb-10 after:content-[''] after:absolute after:-left-1 after:top-4 after:w-0.5 after:h-full after:bg-linear-to-r after:from-primary/100 after:to-[#F9FAFB]"}>
-      <div className={'absolute p-2 size-[60px] rounded-full ring-2 md:ring-2 ring-primary bg-white flex items-center justify-center -left-8 top-20 z-20 overflow-hidden'}>
+    <div
+      className={
+        "after:from-primary/100 relative mb-10 pl-10 after:absolute after:top-4 after:-left-1 after:h-full after:w-0.5 after:bg-linear-to-r after:to-[#F9FAFB] after:content-['']"
+      }
+    >
+      <div
+        className={
+          'ring-primary absolute top-20 -left-8 z-20 flex size-[60px] items-center justify-center overflow-hidden rounded-full bg-white p-2 ring-2 md:ring-2'
+        }
+      >
         <Image alt={'logo-company'} src={IMG_HOME.logoCompany} width={100} height={100} className={'object-contain'} />
       </div>
       {/*  Content*/}
       <Card>
         <CardHeader>
           <div>
-            <h4 className='capitalize text-4xl text-primary flex items-center gap-3 font-medium'>
-              {experience.jobTitle} {' '}
-              {experience.currentJob && <Badge variant='default'>{'Current'}</Badge>}
+            <h4 className='text-primary flex items-center gap-3 text-4xl font-medium capitalize'>
+              {experience.jobTitle} {experience.currentJob && <Badge variant='default'>{'Current'}</Badge>}
             </h4>
             <div className={'flex items-center gap-3'}>
               <h5 className='text-md'>{experience.companyName}</h5>
@@ -28,7 +35,7 @@ const ExperienceItem = ({ data: experience }: IProps) => {
           </div>
         </CardHeader>
         <CardContent>
-          <div className='text-lg text-blue-950 flex items-center gap-3 mb-3'>
+          <div className='mb-3 flex items-center gap-3 text-lg text-blue-950'>
             <span>
               {experience.startDate} - {experience.endDate}
             </span>
@@ -38,9 +45,9 @@ const ExperienceItem = ({ data: experience }: IProps) => {
             </span>
           </div>
           {experience.responsibilities && (
-            <ul className='list-disc list-inside text-lg'>
+            <ul className='list-inside list-disc text-lg'>
               {experience.responsibilities.map((responsibility: any, index: number) => (
-                <li key={index} className='mb-4 font-medium text-slate-600 leading-8'>
+                <li key={index} className='mb-4 leading-8 font-medium text-slate-600'>
                   {responsibility}
                 </li>
               ))}
@@ -58,12 +65,12 @@ const ExperienceItem = ({ data: experience }: IProps) => {
 const SkillArea = ({ skillArea }: { skillArea: any }) => {
   return (
     <div className='mb-4'>
-      <h3 className='text-primary text-2xl mb-2'>{skillArea.title}</h3>
-      <p className='text-md text-left text-gray-700 font-normal'>{skillArea.description}</p>
+      <h3 className='text-primary mb-2 text-2xl'>{skillArea.title}</h3>
+      <p className='text-md text-left font-normal text-gray-700'>{skillArea.description}</p>
 
       {skillArea.keySkills && (
-        <div className='bg-gray-50 rounded-md p-10 mt-4'>
-          <ul className='list-disc list-inside text-lg'>
+        <div className='mt-4 rounded-md bg-gray-50 p-10'>
+          <ul className='list-inside list-disc text-lg'>
             {skillArea.keySkills.map((skill: any, index: number) => (
               <li key={index} className='mb-3'>
                 {skill}

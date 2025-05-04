@@ -23,28 +23,28 @@ const HeroSection = ({ data = profileData }: { data?: typeof profileData }) => {
             </div>
 
             {/* Content */}
-            <div className={'flex flex-col gap-3 mb-7'}>
+            <div className={'mb-7 flex flex-col gap-3'}>
               <h1 className='text-primary text-7xl font-semibold capitalize'>{data.personal.greeting}</h1>
-             <div className={'mt-2'}>
-                 <p className={'text-blue-700 font-semibold before:content-["🌀"]'}>{data.personal.jobTitle}</p>
-             </div>
-              <p className={'text-left break-words leading-7'}>{data.personal.description}</p>
+              <div className={'mt-2'}>
+                <p className={'font-semibold text-blue-700 before:content-["🌀"]'}>{data.personal.jobTitle}</p>
+              </div>
+              <p className={'text-left leading-7 break-words'}>{data.personal.description}</p>
             </div>
             {/* Mission */}
             <Card className={'mb-4'}>
               <CardContent className={'flex flex-col gap-4'}>
-                  <div className='flex items-center gap-2'>
-                      <div className={'rounded-sm bg-gray-50 p-2'}> {data.mission.icon}</div>
-                      <p className={'font-semibold'}>{data.mission.title}</p>
-                  </div>
-                <p className={'text-left break-words leading-7'}>{data.mission.content}</p>
+                <div className='flex items-center gap-2'>
+                  <div className={'rounded-sm bg-gray-50 p-2'}> {data.mission.icon}</div>
+                  <p className={'font-semibold'}>{data.mission.title}</p>
+                </div>
+                <p className={'text-left leading-7 break-words'}>{data.mission.content}</p>
                 <p className='text-sm'>{data.mission.motto}</p>
               </CardContent>
             </Card>
             {/* Sub list stack */}
             <div className='flex items-center gap-4'>
               {data.techStack.map((item, index) => (
-                <div key={index} className='p-1 rounded-sm border border-gray-200 shadow-sm'>
+                <div key={index} className='rounded-sm border border-gray-200 p-1 shadow-sm'>
                   {item.icon}
                 </div>
               ))}
@@ -57,15 +57,15 @@ const HeroSection = ({ data = profileData }: { data?: typeof profileData }) => {
                 <Image src={data.profileImage.prNamNh} alt={'profile-image'} fill className='rounded-md object-cover' />
               </AspectRatio>
             </div>
-              <div className='bg-[rgba(143, 85, 31, 0.8)] border-[rgba(71, 85, 105, 0.3)] absolute right-4 bottom-2 w-44 rounded-2xl border border-solid p-4 text-sm backdrop-blur-xs animate-[bounce_3s_ease-in-out_infinite] '>
-                  <span className='text-[#3b82f6]'>const</span> developer = {'{'}
-                  <br />
-                  &nbsp;&nbsp;name: <span className='text-[#10b981]'>"Dev"</span>,<br />
-                  &nbsp;&nbsp;passion: <span className='text-[#10b981]'>"Code"</span>,<br />
-                  &nbsp;&nbsp;loves: <span className='text-[#10b981]'>"Building"</span>
-                  <br />
-                  {'}'}
-              </div>
+            <div className='bg-[rgba(143, 85, 31, 0.8)] border-[rgba(71, 85, 105, 0.3)] absolute right-4 bottom-2 w-44 animate-[bounce_3s_ease-in-out_infinite] rounded-2xl border border-solid p-4 text-sm backdrop-blur-xs'>
+              <span className='text-[#3b82f6]'>const</span> developer = {'{'}
+              <br />
+              &nbsp;&nbsp;name: <span className='text-[#10b981]'>"Dev"</span>,<br />
+              &nbsp;&nbsp;passion: <span className='text-[#10b981]'>"Code"</span>,<br />
+              &nbsp;&nbsp;loves: <span className='text-[#10b981]'>"Building"</span>
+              <br />
+              {'}'}
+            </div>
           </div>
         </div>
       </CardContent>

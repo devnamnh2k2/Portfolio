@@ -19,9 +19,11 @@ const TextAreaField = <TName extends string>(props: Props<TName>) => {
       name={name}
       render={({ field }) => (
         <FormItem>
-          <FormLabel>{label} {required && <span className={'text-red-500'}>*</span>}</FormLabel>
+          <FormLabel>
+            {label} {required && <span className={'text-red-500'}>*</span>}
+          </FormLabel>
           <FormControl>
-            <Textarea  placeholder={placeholder} {...rest} {...field} />
+            <Textarea placeholder={placeholder} {...rest} {...field} />
           </FormControl>
           {description && <FormDescription>{description}</FormDescription>}
           <FormMessage />
